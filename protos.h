@@ -16,7 +16,7 @@ switch(opcion)
     case 3: punto_3();break;
    // case 4: break;
     case 5: listar_todo();break;
-    case 6: break;
+   // case 6: break;
     case 0: continuar=false; break;
     default:{ cout<<"Opcion incorrecta! Intente nuevamente."; }break;
 

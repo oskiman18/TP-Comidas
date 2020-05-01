@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std ;
-
+#include "rlutil.h"
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
