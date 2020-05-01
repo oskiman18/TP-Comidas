@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1588365217 source:c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"funciones.h"
+	"protos.h"
+
+1588361717 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\protos.h
+
+1588365240 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\funciones.h
+
