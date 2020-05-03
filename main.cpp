@@ -1,4 +1,5 @@
 #include <iostream>
+#include <locale>
 using namespace std ;
 #include <cstdio>
 #include "rlutil.h"
@@ -21,6 +22,7 @@ const char *RESTAURANTES="datos/restos.dat";
 
 
 int main(){
+    setlocale(LC_CTYPE,"Spanish");
     setColor(WHITE);
     setBackgroundColor(BLACK);
     int opcion;

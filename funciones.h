@@ -40,7 +40,7 @@ char nombre[50];
 void menuprincipal(){
 
     cls();
-cout<<"MENU PRINCIPAL"<<endl;
+cout<<"MENÚ PRINCIPAL"<<endl;
 cout<<"--------------"<<endl;
 cout<<"1) PLATOS"<<endl;
 cout<<"2) CLIENTES"<<endl;
@@ -57,7 +57,7 @@ cout<<endl;
 void menuplato()
 {
   cls();
-cout<<"    MENU PLATOS"<<endl;
+cout<<"    MENÚ PLATOS"<<endl;
 cout<<"------------------"<<endl;
 cout<<"1) NUEVO PLATO"<<endl;
 cout<<"2) MODIFICAR PLATO"<<endl;
@@ -68,7 +68,7 @@ cout<<"6) ELIMINAR PLATO"<<endl;
 cout<<"--------------------------------"<<endl;
 cout<<"0) VOLVER AL MENÚ PRINCIPAL"<<endl;
 cout<<endl;
-cout<<"Pulse la opcion de plato deseada: ";
+cout<<"Pulse la opción de plato deseada: ";
 }
 
 //busca de ID en archivo
@@ -104,7 +104,7 @@ cout<<"Por favor ingrese los datos del plato nuevo: "<<endl;
     cin.getline(p->nombre,50);
     if(strlen(p->nombre)==0) return false;
 
-    cout<<"Costo de preparacion: ";
+    cout<<"Costo de preparación: ";
     cin>>p->costo;
     if (p->costo<0) return false;
 
@@ -112,7 +112,7 @@ cout<<"Por favor ingrese los datos del plato nuevo: "<<endl;
     cin>>p->venta;
     if (p->costo >= p->venta) return false;
 
-    cout<<"Tiempo de preparacion en minutos: ";
+    cout<<"Tiempo de preparación en minutos: ";
     cin>>p->tiempo;
     if(p->tiempo<=0) return false;
 
@@ -120,11 +120,11 @@ cout<<"Por favor ingrese los datos del plato nuevo: "<<endl;
     cin>>p->idresto;
     if(p->idresto<=0) return false;
 
-    cout<<"Comision del restaurante: ";
+    cout<<"Comisión del restaurante: ";
     cin>>p->comision;
     if((p->comision>=100)|| (p->comision<=0)) return false;
 
-    cout<<"Categoria del plato: ";
+    cout<<"Categoría del plato: ";
     cin>>p->idcate;
     if(p->idcate<=0) return false;
 
@@ -171,7 +171,7 @@ void punto_1()
    {if (guardar_plato(aux))
     cout<<"Guardado correctamente."<<endl;}
 
-else {cout<<"el producto no ha podido guardarse, reintente."<<endl;}
+else {cout<<"El producto no ha podido guardarse, reintente."<<endl;}
  anykey();
  }
 
@@ -182,12 +182,12 @@ void listar(plato aux)
     cout<<endl;
     cout<<"| ID del plato                     | "<<aux.idplato<<endl;
     cout<<"| Nombre del plato                 | "<<aux.nombre<<endl;
-    cout<<"| Costo de preparacion             | $"<<aux.costo<<endl;
+    cout<<"| Costo de preparación             | $"<<aux.costo<<endl;
     cout<<"| Valor de venta                   | $"<<aux.venta<<endl;
-    cout<<"| Tiempo de preparacion en minutos | "<<aux.tiempo<<endl;
+    cout<<"| Tiempo de preparación en minutos | "<<aux.tiempo<<endl;
     cout<<"| ID del restaurante               | "<<aux.idresto<<endl;
-    cout<<"| Comision del restaurante         | "<<aux.comision<<"%"<<endl;
-    cout<<"| Categoria del plato              | "<<aux.idcate<<endl;
+    cout<<"| Comisión del restaurante         | "<<aux.comision<<"%"<<endl;
+    cout<<"| Categoría del plato              | "<<aux.idcate<<endl;
     cout<<"| Estado del plato                 | ";
 
     if(aux.estado)
@@ -275,7 +275,7 @@ bool modificar_plato (plato *p)
     cin>>p->venta;
     if (p->costo >= p->venta) return false;
 
-    cout<<"Ingrese el nuevo tiempo de preparacion en minutos: ";
+    cout<<"Ingrese el nuevo tiempo de preparación en minutos: ";
     cin>>p->tiempo;
     if(p->tiempo<=0) return false;
     return true;
@@ -309,7 +309,7 @@ void punto_6()
         aux.estado=false;
         guardar_cambio(aux,pos);
         }
-        else {cout<<"Accion cancelada!"; }
+        else {cout<<"Acción cancelada!"; }
     }
     else cout<<"El ID no existe, intente nuevamente.";
     anykey();
@@ -366,7 +366,7 @@ bool confirmar(plato aux)
     {
         case 1: respuesta=true;continuar=false;break;
         case 0: respuesta=false;continuar=false;break;
-        default: cout<<"Opcion incorrecta intente nuevamente";break;
+        default: cout<<"Opción incorrecta intente nuevamente";break;
 
     }
     }
