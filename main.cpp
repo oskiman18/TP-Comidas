@@ -26,6 +26,9 @@ int main(){
     setColor(WHITE);
     setBackgroundColor(BLACK);
     int opcion;
+    inicio();
+    anykey();
+
     while (true)
     {
         menuprincipal();

@@ -36,6 +36,17 @@ char nombre[50];
 };
 
 
+void inicio()
+{int y=50,x;
+    while(y>0)
+ {for(x=y;x>0;x--)
+ {
+     cout<<"*";
+ } cout<<endl;
+ y--;}
+
+}
+
 //Muestra el Menu Principal
 void menuprincipal(){
 

@@ -27,3 +27,31 @@
 	<sys/types.h>
 	<sys/time.h>
 
+1588539929 source:c:\users\oscar\desktop\facultad\github\tp-comidas\main.cpp
+	<iostream>
+	<locale>
+	<cstdio>
+	"rlutil.h"
+	<cstdlib>
+	<cstring>
+	"funciones.h"
+	"protos.h"
+
+1588375485 c:\users\oscar\desktop\facultad\github\tp-comidas\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1588545984 c:\users\oscar\desktop\facultad\github\tp-comidas\funciones.h
+
+1588539929 c:\users\oscar\desktop\facultad\github\tp-comidas\protos.h
+
