@@ -1,16 +1,16 @@
 # depslib dependency file v1.0
-1588375228 source:c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\main.cpp
+1588471982 source:c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\main.cpp
 	<iostream>
+	<cstdio>
 	"rlutil.h"
 	<cstdlib>
-	<cstdio>
 	<cstring>
 	"funciones.h"
 	"protos.h"
 
-1588375588 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\protos.h
+1588529903 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\protos.h
 
-1588365240 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\funciones.h
+1588530233 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\funciones.h
 
 1571584339 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\rlutil.h
 	<iostream>

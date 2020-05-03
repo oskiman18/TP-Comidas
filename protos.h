@@ -11,12 +11,12 @@ while (continuar)
 {   menuplato();
 cin>>opcion;
 switch(opcion)
- {  case 1: nuevo_plato();break;
-   // case 2: break;
+ {  case 1: punto_1();break;
+    case 2: punto_2();break;
     case 3: punto_3();break;
-   // case 4: break;
-    case 5: listar_todo();break;
-   // case 6: break;
+    case 4: punto_4();break;
+    case 5: punto_5();break;
+    case 6: punto_6();break;
     case 0: continuar=false; break;
     default:{ cout<<"Opcion incorrecta! Intente nuevamente."; }break;
 

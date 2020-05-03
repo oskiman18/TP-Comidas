@@ -1,14 +1,16 @@
 #include <iostream>
 using namespace std ;
-#include "rlutil.h"
-#include <cstdlib>
 #include <cstdio>
+#include "rlutil.h"
+using namespace rlutil;
+#include <cstdlib>
+
 #include <cstring>
 const char *PLATOS="datos/platos.dat";
 const char *CLIENTES="datos/clientes.dat";
 const char *PEDIDOS="datos/pedidos.dat";
 const char *REPORTES="datos/reportes.dat";
-
+const char *RESTAURANTES="datos/restos.dat";
 
 #include "funciones.h"
 
@@ -19,6 +21,8 @@ const char *REPORTES="datos/reportes.dat";
 
 
 int main(){
+    setColor(WHITE);
+    setBackgroundColor(BLACK);
     int opcion;
     while (true)
     {
