@@ -25,7 +25,7 @@ bool modificar_plato (plato*);
 bool  confirmar(plato);
 bool baja_logica(plato*);
 bool listar_resto(int);
-
+void inicio();
 
 //Estructura
 struct plato
@@ -37,13 +37,27 @@ char nombre[50];
 
 
 void inicio()
-{int y=50,x;
-    while(y>0)
- {for(x=y;x>0;x--)
- {
-     cout<<"*";
- } cout<<endl;
- y--;}
+{    cout<<" ####             #################   ###############      "; setColor(DARKGREY);    cout<<" \##############################/"<<endl;setColor(YELLOW);
+     cout<<" ####             #################   ################     "; setColor (DARKGREY);   cout<<"  \############################/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####         ####       \#####";setColor(RED);cout<<"###"; setColor (YELLOW);   cout<<"##################/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####         ####        \###";setColor(RED);cout<<"#####"; setColor (YELLOW);   cout<<"################/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####        ####          \##";setColor(RED);cout<<"#####"; setColor (YELLOW);   cout<<"###############/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####       ####            \##";setColor(RED);cout<<"###"; setColor (YELLOW);   cout<<"###########";setColor(RED);cout<<"####/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ##############              \######"; setColor (YELLOW);   cout<<"########";setColor(RED);cout<<"####/"<<endl;setColor(YELLOW);
+     cout<<" ####             #################   ##############               \######"; setColor (YELLOW);   cout<<"######";setColor(RED);cout<<"####/"<<endl;setColor(YELLOW);
+     cout<<" ####             #################   ##############                \###########";setColor(RED);cout<<"###/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####       ####                \############/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####        ####                \##########/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####         ####                \########/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####          ####                \######/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####           ####                \####/"<<endl;setColor(YELLOW);
+     cout<<" ##############   ####         ####   ####            ####                \##/"<<endl;setColor(YELLOW);
+     cout<<" ##############   ####         ####   ####             ####                \/"<<endl;setColor(YELLOW);
+
+
+
+
+
 
 }
 
@@ -208,7 +222,7 @@ void listar(plato aux)
     else setColor(RED);
     cout<<aux.estado<<endl;
     cout<<endl;
-    setColor(WHITE);
+    setColor(YELLOW);
 }
 
 //Muestra de plato buscado por ID

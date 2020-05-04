@@ -23,7 +23,7 @@ const char *RESTAURANTES="datos/restos.dat";
 
 int main(){
     setlocale(LC_CTYPE,"Spanish");
-    setColor(WHITE);
+    setColor(YELLOW);
     setBackgroundColor(BLACK);
     int opcion;
     inicio();
@@ -44,7 +44,8 @@ int main(){
     case 4:break;
     case 5:break;
 
-    case 0: system("cls");cout<<"Gracias por utilizar nuestro sistema";return 0;        default: cout<<"la opcion es incorrecta";
+    case 0: cls();cout<<"Gracias por utilizar nuestro sistema";return 0;
+    default: cout<<"la opcion es incorrecta";anykey();
 
 
     }
