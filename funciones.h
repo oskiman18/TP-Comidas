@@ -328,13 +328,16 @@ void punto_6()
     if (pos>=0)
     {
         aux=leer_plato(pos);
+        if(aux.estado)
+       {
+
         if(confirmar(aux))
         {cout<<"Producto dado de baja!";
         aux.estado=false;
         guardar_cambio(aux,pos);
         }
         else {cout<<"Acción cancelada!"; }
-    }
+    } else cout<<"El producto ya esta dado de baja";}
     else cout<<"El ID no existe, intente nuevamente.";
     anykey();
 

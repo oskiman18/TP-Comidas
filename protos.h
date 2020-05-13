@@ -45,7 +45,7 @@ switch(opcion)
     case 2: cliente_2();break;
     case 3: cliente_3();break;
     case 4: cliente_4();break;
-    case 5: ;break;
+    case 5: cliente_5();break;
 
     case 0: continuar=false; break;
     default:{ cout<<"Opcion incorrecta! Intente nuevamente.";anykey(); }break;

@@ -12,10 +12,15 @@ void listar_cliente(cliente);
 int buscar_cliente(int id);
 cliente leer_cliente (int pos);
 bool modificar_cliente (cliente *p);
+bool confirmar_cliente(cliente aux);
+bool cambio_cliente(cliente,int);
+
 void cliente_1();
 void cliente_2();
 void cliente_3();
 void cliente_4();
+void cliente_5();
+
 
 
 struct fecha{
@@ -43,7 +48,8 @@ cout<<"4) LISTAR TODOS LOS CLIENTES"<<endl;
 cout<<"5) ELIMINAR CLIENTE"<<endl;
 cout<<"--------------------------------"<<endl;
 cout<<"0) VOLVER AL MENÚ PRINCIPAL"<<endl;
-
+cout<<endl;
+cout<<"Pulse la opción de plato deseada: ";
 }
 
 
@@ -53,15 +59,21 @@ cout<<"Por favor ingrese los datos del cliente nuevo: "<<endl;
 
     p->id=contar_clientes()+1;
 
+    cout<<"Apellido: ";
+    cin.ignore();
+    cin.getline(p->apellido,50);
+    if(strlen(p->apellido)==0) return false;
+
     cout<<"Nombre: ";
     cin.ignore();
     cin.getline(p->nombre,50);
     if(strlen(p->nombre)==0) return false;
 
-     cout<<"Apellido: ";
+    cout<<"Mail: ";
     cin.ignore();
-    cin.getline(p->apellido,50);
-    if(strlen(p->apellido)==0) return false;
+    cin.getline(p->mail,50);
+     if(strlen(p->mail)==0) return false;
+    //falta verificaciones
 
     cout<<"Domicilio: ";
     cin.ignore();
@@ -286,6 +298,53 @@ void cliente_2()
 
 
 
+bool confirmar_cliente(cliente aux)
+{   bool respuesta,continuar=true;
+    int opcion;
 
+
+    while (continuar)
+    {cls();
+    listar_cliente(aux);
+        cout<<"Seguro que quiere dar de baja el Cliente? "<<endl;
+        cout<<endl;
+        cout<<"Pulse 1 para confirmar"<<endl;
+        cout<<"Pulse 0 para cancelar"<<endl;
+        cout<<endl;
+    cin>>opcion;
+     switch (opcion)
+    {
+        case 1: respuesta=true;continuar=false;break;
+        case 0: respuesta=false;continuar=false;break;
+        default: cout<<"Opción incorrecta intente nuevamente";break;
+
+    }
+    }
+    return respuesta;
+    }
+
+void cliente_5()
+{   cls();
+    int id, pos;
+    cliente aux;
+    cout<<"Por favor ingrese el ID del Cliente a dar de baja: ";
+    cin>>id;
+    pos=buscar_cliente(id);
+    if (pos>=0)
+    {
+        aux=leer_cliente(pos);
+        if (aux.estado)
+        {if(confirmar_cliente(aux))
+        {cout<<"Cliente dado de baja!";
+        aux.estado=false;
+        cambio_cliente(aux,pos);
+        } else cout<<"Acción cancelada!"; }
+        else cout<<"El Cliente ya esta dado de baja.";
+
+    }
+    else cout<<"El ID no existe, intente nuevamente.";
+    anykey();
+
+}
 
 #endif // FUNCIONES_CLIENTES_H_INCLUDED
