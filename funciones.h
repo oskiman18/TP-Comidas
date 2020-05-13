@@ -8,7 +8,6 @@ void menuprincipal();
 void menuplato();
 bool cargar_plato(plato);
 bool guardar_plato(plato);
-void nuevo_plato();
 void listar(plato) ;
 void listar_todo();
 void listar_idplato(int);

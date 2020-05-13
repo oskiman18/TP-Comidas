@@ -1,6 +1,7 @@
 #include <iostream>
 #include <locale>
 using namespace std ;
+#include <ctime>
 #include <cstdio>
 #include "rlutil.h"
 using namespace rlutil;
@@ -14,8 +15,7 @@ const char *REPORTES="datos/reportes.dat";
 const char *RESTAURANTES="datos/restos.dat";
 
 #include "funciones.h"
-
-
+#include "funciones_clientes.h"
 #include "protos.h"
 
 
@@ -39,7 +39,7 @@ int main(){
 
 
     case 1: proto_plato();break;
-    case 2:break;
+    case 2: proto_cliente();break;
     case 3:break;
     case 4:break;
     case 5:break;
