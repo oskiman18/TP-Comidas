@@ -12,6 +12,8 @@ void listar(plato) ;
 void listar_todo();
 void listar_idplato(int);
 int buscar_posicion (int);
+bool solo_letras (char*);
+void primera_mayus (char*);
 void punto_1();
 void punto_2();
 void punto_3();
@@ -127,6 +129,8 @@ cout<<"Por favor ingrese los datos del plato nuevo: "<<endl;
     cin.ignore();
     cin.getline(p->nombre,50);
     if(strlen(p->nombre)==0) return false;
+    primera_mayus(p->nombre);
+    if(!solo_letras(p->nombre)) return false;
 
     cout<<"Costo de preparación: ";
     cin>>p->costo;
