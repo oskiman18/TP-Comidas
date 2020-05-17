@@ -114,15 +114,16 @@ bool copiar_plato()
     {free(vec);cout<<"No hay memoria suficiente";return false;}
 
     FILE *p;
-    p=fopen(PLATOS,"rb+");
-    if (p==NULL) return false;
-    fread(&vec[0],sizeof(plato),cant,p);
+    p=fopen(PLATOS,"rb");
+    if (p==NULL) {free (vec);return false;}
+    fread(vec,sizeof(plato),cant,p);
     fclose(p);
 
-    p=fopen(BKP_PLATOS,"wb+");
-    if (p==NULL) return false;
-    fwrite(&vec[0],sizeof(plato),cant,p);
+    p=fopen(BKP_PLATOS,"wb");
+    if (p==NULL) {free (vec);return false;}
+    fwrite(vec,sizeof(plato),cant,p);
     fclose(p);
+
     free(vec);
     return true;
 }
@@ -138,13 +139,13 @@ bool copiar_cliente()
 
     FILE *p;
     p=fopen(CLIENTES,"rb");
-    if (p==NULL) return false;
-    fread(&vec[0],sizeof(cliente),cant,p);
+    if (p==NULL) {free (vec);return false;}
+    fread(vec,sizeof(cliente),cant,p);
     fclose(p);
 
     p=fopen(BKP_CLIENTES,"wb");
-    if (p==NULL) return false;
-    fwrite(&vec[0],sizeof(cliente),cant,p);
+    if (p==NULL) {free (vec);return false;}
+    fwrite(vec,sizeof(cliente),cant,p);
     fclose(p);
     free(vec);
     return true;
@@ -161,13 +162,13 @@ bool copiar_pedido()
 
     FILE *p;
     p=fopen(PEDIDOS,"rb");
-    if (p==NULL) return false;
-    fread(&vec[0],sizeof(pedido),cant,p);
+    if (p==NULL) {free (vec);return false;}
+    fread(vec,sizeof(pedido),cant,p);
     fclose(p);
 
-    p=fopen(BKP_PEDIDOS,"wb+");
-    if (p==NULL) return false;
-    fwrite(&vec[0],sizeof(pedido),cant,p);
+    p=fopen(BKP_PEDIDOS,"wb");
+    if (p==NULL) {free (vec);return false;}
+    fwrite(vec,sizeof(pedido),cant,p);
     fclose(p);
     free(vec);
 
@@ -178,20 +179,20 @@ bool copiar_pedido()
 bool restaurar_plato()
 {   int cant;
     plato *vec;
-    cant=contar_platos();
+    cant=contar_platos_bkp();
     vec =(plato *) malloc(cant * sizeof(plato));
     if(vec==NULL)
     {free(vec);cout<<"No hay memoria suficiente";return false;}
 
     FILE *p;
-    p=fopen(BKP_PLATOS,"rb+");
-    if (p==NULL) return false;
-    fread(&vec[0],sizeof(plato),cant,p);
+    p=fopen(BKP_PLATOS,"rb");
+    if (p==NULL) {free (vec);return false;}
+    fread(vec,sizeof(plato),cant,p);
     fclose(p);
 
-    p=fopen(PLATOS,"wb+");
-    if (p==NULL) return false;
-    fwrite(&vec[0],sizeof(plato),cant,p);
+    p=fopen(PLATOS,"wb");
+    if (p==NULL) {free (vec);return false;}
+    fwrite(vec,sizeof(plato),cant,p);
     fclose(p);
     free(vec);
     return true;
@@ -201,20 +202,20 @@ bool restaurar_plato()
 bool restaurar_cliente()
 {   int cant;
     cliente *vec;
-    cant=contar_clientes();
+    cant=contar_clientes_bkp();
     vec =(cliente *) malloc(cant * sizeof(cliente));
     if(vec==NULL)
     {free(vec);cout<<"No hay memoria suficiente";return false ;}
 
     FILE *p;
     p=fopen(BKP_CLIENTES,"rb");
-    if (p==NULL) return false;
-    fread(&vec[0],sizeof(cliente),cant,p);
+    if (p==NULL) {free (vec);return false;}
+    fread(vec,sizeof(cliente),cant,p);
     fclose(p);
 
     p=fopen(CLIENTES,"wb");
-    if (p==NULL) return false;
-    fwrite(&vec[0],sizeof(cliente),cant,p);
+    if (p==NULL) {free (vec);return false;}
+    fwrite(vec,sizeof(cliente),cant,p);
     fclose(p);
     free(vec);
     return true;
@@ -224,20 +225,20 @@ bool restaurar_cliente()
 bool restaurar_pedido()
 {   int cant;
     pedido *vec;
-    cant=contar_pedidos();
+    cant=contar_pedidos_bkp();
     vec =(pedido *) malloc(cant * sizeof(pedido));
     if(vec==NULL)
     {free(vec);cout<<"No hay memoria suficiente";return false;}
 
     FILE *p;
     p=fopen(BKP_PEDIDOS,"rb");
-    if (p==NULL) return false;
-    fread(&vec[0],sizeof(pedido),cant,p);
+    if (p==NULL) {free (vec);return false;}
+    fread(vec,sizeof(pedido),cant,p);
     fclose(p);
 
     p=fopen(PEDIDOS,"wb");
-    if (p==NULL) return false;
-    fwrite(&vec[0],sizeof(pedido),cant,p);
+    if (p==NULL) {free (vec);return false;}
+    fwrite(vec,sizeof(pedido),cant,p);
     fclose(p);
     free(vec);
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1589741892 source:c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\main.cpp
+1589752175 source:c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\main.cpp
 	<iostream>
 	<locale>
 	<ctime>
@@ -15,7 +15,7 @@
 
 1589743518 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\protos.h
 
-1589740219 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\funciones.h
+1589752426 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\funciones.h
 
 1571584339 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\rlutil.h
 	<iostream>
@@ -59,9 +59,9 @@
 
 1588539929 c:\users\oscar\desktop\facultad\github\tp-comidas\protos.h
 
-1589738781 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\funciones_clientes.h
+1589751056 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\funciones_clientes.h
 
-1589736309 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\f_pedidos.h
+1589751082 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\f_pedidos.h
 
-1589745025 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\configuracion.h
+1589752122 c:\users\oski\desktop\facultad\01 progra 2\codigos\tp comidas\configuracion.h
 

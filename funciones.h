@@ -14,6 +14,7 @@ void listar_idplato(int);
 int buscar_posicion (int);
 bool solo_letras (char*);
 void primera_mayus (char*);
+int contar_platos_bkp();
 void punto_1();
 void punto_2();
 void punto_3();
@@ -439,6 +440,19 @@ int contar_platos()
 {   int tam;
     FILE *p;
     p=fopen(PLATOS,"rb");
+    if (p==NULL) return 0;
+    fseek(p,0,SEEK_END);
+    tam=ftell(p)/sizeof(plato);
+
+    return tam;
+    fclose(p);
+}
+
+//cuenta platos del backup
+int contar_platos_bkp()
+{   int tam;
+    FILE *p;
+    p=fopen(BKP_PLATOS,"rb");
     if (p==NULL) return 0;
     fseek(p,0,SEEK_END);
     tam=ftell(p)/sizeof(plato);

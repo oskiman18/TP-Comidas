@@ -55,6 +55,18 @@ int contar_pedidos()
     fclose(p);
 }
 
+//cuenta pedidos del backup
+int contar_pedidos_bkp()
+{   int tam;
+    FILE *p;
+    p=fopen(BKP_PEDIDOS,"rb");
+    if (p==NULL) return 0;
+    fseek(p,0,SEEK_END);
+    tam=ftell(p)/sizeof(pedido);
+
+    return tam;
+    fclose(p);}
+
 //ingreso de datos de pedido nuevo
 bool ingresar_pedido(pedido *p)
 {   cls();

@@ -6,7 +6,7 @@ struct fecha;
 void menu_clientes();
 bool nuevo_cliente(cliente*);
 int contar_clientes();
-
+int contar_clientes_bkp();
 bool guardar_cliente(cliente);
 void listar_cliente(cliente);
 int buscar_cliente(int);
@@ -128,6 +128,18 @@ int contar_clientes()
     fclose(p);
 }
 
+//cuenta clientes del backup
+int contar_clientes_bkp()
+{   int tam;
+    FILE *p;
+    p=fopen(BKP_CLIENTES,"rb");
+    if (p==NULL) return 0;
+    fseek(p,0,SEEK_END);
+    tam=ftell(p)/sizeof(cliente);
+
+    return tam;
+    fclose(p);
+}
 //grabado de cliente nuevo
 bool guardar_cliente(cliente aux)
 {   bool guardo=true;

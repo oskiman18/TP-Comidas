@@ -14,7 +14,7 @@ const char *PEDIDOS="datos/pedidos.dat";
 const char *REPORTES="datos/reportes.dat";
 const char *RESTAURANTES="datos/restos.dat";
 const char *BKP_PLATOS="backup/platos.bkp";
-const char *BKP_CLIENTES="backup/clientes-bkp";
+const char *BKP_CLIENTES="backup/clientes.bkp";
 const char *BKP_PEDIDOS="backup/pedidos.bkp";
 
 
@@ -51,13 +51,13 @@ int main(){
     case 4: copiar_plato();break;
     case 5: proto_configuracion();break;
 
-    case 0: cls();cout<<"Gracias por utilizar nuestro sistema";return 0;
+    case 0: cls();cout<<"Gracias por utilizar nuestro sistema"<<endl;return 0;
     default: cout<<"La opción es incorrecta";anykey();
 
 
     }
 
 }
-
+cout<<endl;
 return 0;
 }
