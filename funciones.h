@@ -38,22 +38,22 @@ char nombre[50];
 
 
 void inicio()
-{    cout<<" ####             #################   ###############      "; setColor(DARKGREY);    cout<<" \##############################/"<<endl;setColor(YELLOW);
-     cout<<" ####             #################   ################     "; setColor (DARKGREY);   cout<<"  \############################/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ####         ####       \#####";setColor(RED);cout<<"###"; setColor (YELLOW);   cout<<"##################/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ####         ####        \###";setColor(RED);cout<<"#####"; setColor (YELLOW);   cout<<"################/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ####        ####          \##";setColor(RED);cout<<"#####"; setColor (YELLOW);   cout<<"###############/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ####       ####            \##";setColor(RED);cout<<"###"; setColor (YELLOW);   cout<<"###########";setColor(RED);cout<<"####/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ##############              \######"; setColor (YELLOW);   cout<<"########";setColor(RED);cout<<"####/"<<endl;setColor(YELLOW);
-     cout<<" ####             #################   ##############               \######"; setColor (YELLOW);   cout<<"######";setColor(RED);cout<<"####/"<<endl;setColor(YELLOW);
-     cout<<" ####             #################   ##############                \###########";setColor(RED);cout<<"###/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ####       ####                \############/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ####        ####                \##########/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ####         ####                \########/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ####          ####                \######/"<<endl;setColor(YELLOW);
-     cout<<" ####             ####         ####   ####           ####                \####/"<<endl;setColor(YELLOW);
-     cout<<" ##############   ####         ####   ####            ####                \##/"<<endl;setColor(YELLOW);
-     cout<<" ##############   ####         ####   ####             ####                \/"<<endl;setColor(YELLOW);
+{    cout<<" ####             #################   ###############      "; setColor(DARKGREY);    cout<<" ##############################/"<<endl;setColor(YELLOW);
+     cout<<" ####             #################   ################     "; setColor (DARKGREY);   cout<<"  ############################/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####         ####       #####";setColor(RED);cout<<"###"; setColor (YELLOW);   cout<<"##################/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####         ####        ###";setColor(RED);cout<<"#####"; setColor (YELLOW);   cout<<"################/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####        ####          ##";setColor(RED);cout<<"#####"; setColor (YELLOW);   cout<<"###############/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####       ####            ##";setColor(RED);cout<<"###"; setColor (YELLOW);   cout<<"###########";setColor(RED);cout<<"####/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ##############              ######"; setColor (YELLOW);   cout<<"########";setColor(RED);cout<<"####/"<<endl;setColor(YELLOW);
+     cout<<" ####             #################   ##############               ######"; setColor (YELLOW);   cout<<"######";setColor(RED);cout<<"####/"<<endl;setColor(YELLOW);
+     cout<<" ####             #################   ##############                ###########";setColor(RED);cout<<"###/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####       ####                ############/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####        ####                ##########/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####         ####                ########/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####          ####                ######/"<<endl;setColor(YELLOW);
+     cout<<" ####             ####         ####   ####           ####                ####/"<<endl;setColor(YELLOW);
+     cout<<" ##############   ####         ####   ####            ####                ##/"<<endl;setColor(YELLOW);
+     cout<<" ##############   ####         ####   ####             ####                /"<<endl;setColor(YELLOW);
 
 
 
@@ -135,10 +135,12 @@ cout<<"Por favor ingrese los datos del plato nuevo: "<<endl;
     cout<<"Costo de preparación: ";
     cin>>p->costo;
     if (p->costo<0) return false;
+    cin.ignore();
 
     cout<<"Valor de venta: ";
     cin>>p->venta;
     if (p->costo >= p->venta) return false;
+    cin.ignore();
 
     cout<<"Tiempo de preparación en minutos: ";
     cin>>p->tiempo;
@@ -219,10 +221,10 @@ void listar(plato aux)
     cout<<"| Estado del plato                 | ";
 
     if(aux.estado)
-    { setColor(GREEN);
+    { setColor(LIGHTGREEN);
 
     }
-    else setColor(RED);
+    else setColor(LIGHTRED);
     cout<<aux.estado<<endl;
     cout<<endl;
     setColor(YELLOW);
@@ -251,6 +253,30 @@ void punto_5()
     anykey();
 
 }
+
+void prueba()
+{
+      cls();
+    plato aux;
+    FILE *p;
+   p=fopen(BKP_PLATOS,"rb");
+   if(p==NULL)
+   {
+       cout<<"El archivo no existe";
+   }
+    while (fread(&aux,sizeof(plato),1,p))
+    {
+        listar(aux);
+        for(int x=0;x<50;x++)
+        {
+            cout<<"=";
+        }cout<<endl;
+    }
+    fclose(p);
+    anykey();
+
+}
+
 
 
 //Muestra del plato buscado por ID en archivo
@@ -366,10 +392,15 @@ bool listar_resto(int id)
     bool respuesta=false;
     FILE *p;
     p=fopen(PLATOS,"rb");
-    if(p==NULL) cout<<"El archivo no existe";
+    if(p==NULL) {cout<<"El archivo no existe"; return respuesta;}
     while(fread(&aux,sizeof(plato),1,p))
     {   if (id==aux.idresto)
         {listar(aux);
+         for(int x=0;x<50;x++)
+        {
+            cout<<"=";
+        }cout<<endl;
+
     respuesta=true;}
     }
 
@@ -404,6 +435,16 @@ bool confirmar(plato aux)
     return respuesta;
     }
 
+int contar_platos()
+{   int tam;
+    FILE *p;
+    p=fopen(PLATOS,"rb");
+    if (p==NULL) return 0;
+    fseek(p,0,SEEK_END);
+    tam=ftell(p)/sizeof(plato);
 
+    return tam;
+    fclose(p);
+}
 
 #endif // FUNCIONES_H_INCLUDED

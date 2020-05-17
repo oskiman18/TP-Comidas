@@ -38,7 +38,7 @@ struct cliente
     fecha nacimiento;
 };
 
-
+//menu
 void menu_clientes(){
     cls();
 cout<<"MENÚ CLIENTES"<<endl;
@@ -51,10 +51,10 @@ cout<<"5) ELIMINAR CLIENTE"<<endl;
 cout<<"--------------------------------"<<endl;
 cout<<"0) VOLVER AL MENÚ PRINCIPAL"<<endl;
 cout<<endl;
-cout<<"Pulse la opción de plato deseada: ";
+cout<<"Pulse la opción de cliente deseada: ";
 }
 
-
+//ingreso de datos de cliente nuevo
 bool nuevo_cliente(cliente *p)
 { cls();
 cout<<"Por favor ingrese los datos del cliente nuevo: "<<endl;
@@ -81,13 +81,10 @@ cout<<"Por favor ingrese los datos del cliente nuevo: "<<endl;
     if(strlen(p->mail)==0) return false;
     if (!verificar_mail(p->mail)) return false;
 
-    //falta verificaciones
-
     cout<<"Domicilio: ";
     cin.getline(p->domicilio,100);
     if(strlen(p->domicilio)==0) return false;
     primera_mayus(p->domicilio);
-    if (!verificar_dom(p->domicilio)) return false;
 
     cout<<"Codigo Postal: ";
     cin>>p->cp;
@@ -101,14 +98,14 @@ cout<<"Por favor ingrese los datos del cliente nuevo: "<<endl;
     cin>>p->nacimiento.mes;
     if (p->nacimiento.mes<1 || p->nacimiento.mes >12) return false;
 
-
+//verificacion de fecha
     switch (p->nacimiento.mes)
-{
-case 2: if(p->nacimiento.dia>28) return false; break;
-case 4:
-case 6:
-case 9:
-case 11: if (p->nacimiento.dia>30) return false;break;}
+   {case 2: if(p->nacimiento.dia>28) return false; break;
+    case 4:
+    case 6:
+    case 9:
+    case 11: if (p->nacimiento.dia>30) return false;break;}
+
  cout<<"Año: ";
 cin>>p->nacimiento.anio;
     if ((p->nacimiento.anio<1920) || (p->nacimiento.anio>2010)) return false;
@@ -118,8 +115,7 @@ cin>>p->nacimiento.anio;
      return true;}
 
 
-
-
+//mide la cantidad de clientes registrados en el archivo
 int contar_clientes()
 {   int tam;
     FILE *p;
@@ -132,6 +128,7 @@ int contar_clientes()
     fclose(p);
 }
 
+//grabado de cliente nuevo
 bool guardar_cliente(cliente aux)
 {   bool guardo=true;
     FILE *p;
@@ -157,7 +154,7 @@ void cliente_1()
 else {cout<<"El Cliente no ha podido regitrarse, reintente."<<endl;}
  anykey();}
 
-
+//listado cliente
  void listar_cliente(cliente aux)
 {
     cout<<endl;
@@ -184,6 +181,7 @@ else {cout<<"El Cliente no ha podido regitrarse, reintente."<<endl;}
 
 }
 
+//busqueda del indice en el archivo
 int buscar_cliente(int id)
 {   cliente aux;
     int pos=0;
@@ -200,6 +198,7 @@ int buscar_cliente(int id)
     return -1;
     }
 
+//lectura del archivo a una struct
 cliente leer_cliente (int pos)
 {   cliente aux;
     FILE *p;
@@ -254,6 +253,7 @@ void cliente_4()
 }
 
 
+// ingreso de nuevos datos de cambio
 bool modificar_cliente (cliente *p)
 {  cout<<"Ingrese el nuevo Domicilio: ";
     cin.ignore();
@@ -263,6 +263,7 @@ bool modificar_cliente (cliente *p)
     return true;
 }
 
+//grabado actualizacion de datos cliente
 bool cambio_cliente(cliente aux,int pos)
 {   bool guardo=true;
     FILE *p;
@@ -306,7 +307,7 @@ void cliente_2()
 
 
 
-
+//confirmacion de baja logica
 bool confirmar_cliente(cliente aux)
 {   bool respuesta,continuar=true;
     int opcion;
@@ -332,6 +333,7 @@ bool confirmar_cliente(cliente aux)
     return respuesta;
     }
 
+
 void cliente_5()
 {   cls();
     int id, pos;
@@ -356,12 +358,15 @@ void cliente_5()
 
 }
 
+//conversion de la primera letra de una cadena a Mayus
 void primera_mayus(char*cadena)
 
 {
     if (cadena[0]>90) cadena[0]-=32;
 }
 
+/*para los nombres y apellidos,
+(No creo q compre el hijo recien nacido de Elon Musk)*/
 bool solo_letras (char*cadena)
 {   int i=0;
     while (cadena[i]!='\0')
@@ -375,20 +380,7 @@ bool solo_letras (char*cadena)
     return true;
 }
 
-bool verificar_dom(char*dom)
-{   int i=0;
-    while (dom[i]!='\0')
-    {
-        if (dom[i]<32) return false;
-        if ((dom[i]>32)&&(dom[i]<48)) return false;
-        if ((dom[i]>57)&&(dom[i]<65)) return false;
-        if ((dom[i]>90)&&(dom[i]<97)) return false;
-        if (dom[i]>122) return false;
-        i++;
-    }
-    return true;
-}
-
+//parametros para la cadena del mail
 bool verificar_mail(char*mail)
 {   int i=0, arroba=0;
     if((mail[0]=='@')|| (mail[0]=='.')) return false;
@@ -399,7 +391,10 @@ bool verificar_mail(char*mail)
         if ((mail[i]>90)&&(mail[i]<95)) return false;
         if ((mail[i]>95)&&(mail[i]<97)) return false;
         if (mail[i]>122) return false;
-        if (mail[i]=='@') arroba++;
+        if (mail[i]=='@')
+       {arroba++;
+        if ((mail[i-1]=='.') || (mail[i-1]=='_')) return false;
+        if ((mail[i+1]=='.') || (mail[i+1]=='_')) return false;        }
         if ((mail[i]=='.') &&(mail[i+1]=='.')) return false;
         i++;
     }
@@ -409,5 +404,49 @@ bool verificar_mail(char*mail)
 
 return true;
 }
+
+/*
+//CREAR EL VECTOR, ORDENA EL ARCHIVO Y GUARDALO PAPU
+void ordenar_archivo()
+{
+    int cant;
+    cliente *vec;
+
+    cant=contar_clientes();
+    vec =(cliente *) malloc(cant * sizeof(cliente));
+    if(vec==NULL)
+    {   free(vec);
+        cout<<"No hay memoria suficiente";
+    return;
+    }
+    FILE *p;
+    p=fopen(CLIENTES,"rb+");
+    if (p==NULL) {cout<<"No existe el archivo";return;}
+    fread(&vec[0],sizeof(cliente),cant,p);
+
+    ordenar_vector(vec,cant);
+
+    fwrite(&vec[0],sizeof(cliente),cant,p);
+    fclose(p);
+
+
+
+
+}
+
+
+void ordenar_vector(cliente*p, int cant)
+{
+
+for (i=0;i<cant;i++;)
+{
+
+
+}
+
+}*/
+
+
+
 #endif // FUNCIONES_CLIENTES_H_INCLUDED
 

@@ -13,10 +13,17 @@ const char *CLIENTES="datos/clientes.dat";
 const char *PEDIDOS="datos/pedidos.dat";
 const char *REPORTES="datos/reportes.dat";
 const char *RESTAURANTES="datos/restos.dat";
+const char *BKP_PLATOS="backup/platos.bkp";
+const char *BKP_CLIENTES="backup/clientes-bkp";
+const char *BKP_PEDIDOS="backup/pedidos.bkp";
+
 
 #include "funciones.h"
 #include "funciones_clientes.h"
+#include "f_pedidos.h"
+#include "configuracion.h"
 #include "protos.h"
+
 
 
 
@@ -40,12 +47,12 @@ int main(){
 
     case 1: proto_plato();break;
     case 2: proto_cliente();break;
-    case 3:break;
-    case 4:break;
-    case 5:break;
+    case 3: proto_pedido();break;
+    case 4: copiar_plato();break;
+    case 5: proto_configuracion();break;
 
     case 0: cls();cout<<"Gracias por utilizar nuestro sistema";return 0;
-    default: cout<<"la opcion es incorrecta";anykey();
+    default: cout<<"La opción es incorrecta";anykey();
 
 
     }
