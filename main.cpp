@@ -48,9 +48,7 @@ int main(){
     case 1: proto_plato();break;
     case 2: proto_cliente();break;
     case 3: proto_pedido();break;
-    case 4: copiar_plato();break;
     case 5: proto_configuracion();break;
-    case 6: ordenar_archivo();break;
     case 0: cls();cout<<"Gracias por utilizar nuestro sistema"<<endl;return 0;
     default: cout<<"La opción es incorrecta";anykey();
 
