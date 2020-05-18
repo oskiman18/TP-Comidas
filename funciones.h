@@ -165,23 +165,23 @@ cout<<"Por favor ingrese los datos del plato nuevo: "<<endl;
 
 //Grabado en archivo del plato
 bool guardar_plato(plato aux)
-{   bool guardo=true;
+{
     FILE *p;
     p=fopen(PLATOS,"ab");
-    if (p==NULL)
-   return false;
+    if (p==NULL) {return false;}
 
     fwrite(&aux,sizeof(aux),1,p);
 
 
     fclose(p);
 
-return guardo;
+return true;
 }
 
 //Grabado de modificacion en archivo
 bool guardar_cambio(plato aux,int pos)
-{   bool guardo=true;
+{
+
     FILE *p;
     p=fopen(PLATOS,"rb+");
     if (p==NULL) return false;
@@ -191,7 +191,7 @@ bool guardar_cambio(plato aux,int pos)
 
     fclose(p);
 
-return guardo;
+    return true;
 }
 
 //Carga y guardado de nuevo platos
@@ -200,7 +200,7 @@ void punto_1()
     plato aux;
     if (cargar_plato(&aux))
    {if (guardar_plato(aux))
-    cout<<"Guardado correctamente."<<endl;}
+    {cout<<"Guardado correctamente."<<endl;}}
 
 else {cout<<"El producto no ha podido guardarse, reintente."<<endl;}
  anykey();
@@ -260,7 +260,7 @@ void prueba()
       cls();
     plato aux;
     FILE *p;
-   p=fopen(BKP_PLATOS,"rb");
+   p=fopen(PLATOS,"rb");
    if(p==NULL)
    {
        cout<<"El archivo no existe";

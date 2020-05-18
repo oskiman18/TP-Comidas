@@ -6,8 +6,8 @@ using namespace std ;
 #include "rlutil.h"
 using namespace rlutil;
 #include <cstdlib>
-
 #include <cstring>
+
 const char *PLATOS="datos/platos.dat";
 const char *CLIENTES="datos/clientes.dat";
 const char *PEDIDOS="datos/pedidos.dat";
@@ -50,7 +50,7 @@ int main(){
     case 3: proto_pedido();break;
     case 4: copiar_plato();break;
     case 5: proto_configuracion();break;
-
+    case 6: ordenar_archivo();break;
     case 0: cls();cout<<"Gracias por utilizar nuestro sistema"<<endl;return 0;
     default: cout<<"La opción es incorrecta";anykey();
 

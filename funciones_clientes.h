@@ -16,7 +16,8 @@ bool confirmar_cliente(cliente aux);
 bool cambio_cliente(cliente,int);
 bool verificar_mail(char*);
 bool verificar_dom(char*);
-
+void ordenar_vector(cliente*, int);
+void ordenar_archivo();
 void cliente_1();
 void cliente_2();
 void cliente_3();
@@ -244,6 +245,7 @@ void cliente_3()
 void cliente_4()
 {
       cls();
+      ordenar_archivo();
     cliente aux;
     FILE *p;
    p=fopen(CLIENTES,"rb");
@@ -417,12 +419,12 @@ bool verificar_mail(char*mail)
 return true;
 }
 
-/*
+
 //CREAR EL VECTOR, ORDENA EL ARCHIVO Y GUARDALO PAPU
 void ordenar_archivo()
 {
     int cant;
-    cliente *vec;
+    cliente *vec, aux;
 
     cant=contar_clientes();
     vec =(cliente *) malloc(cant * sizeof(cliente));
@@ -437,26 +439,31 @@ void ordenar_archivo()
     fread(&vec[0],sizeof(cliente),cant,p);
 
     ordenar_vector(vec,cant);
-
+    fseek(p,0,SEEK_SET);
     fwrite(&vec[0],sizeof(cliente),cant,p);
     fclose(p);
 
-
-
-
+    free(vec);
 }
 
 
 void ordenar_vector(cliente*p, int cant)
 {
+int x,y,pos;
+cliente aux;
 
-for (i=0;i<cant;i++;)
-{
-
-
+for (x=0;x<cant;x++)
+{pos=x;
+    for(y=x+1;y<cant;y++)
+    {if ((strcmp(p[y].apellido,p[pos].apellido))<0)
+       {pos=y;}
+       }
+    aux=p[x];
+    p[x]=p[pos];
+    p[pos]=aux;
 }
 
-}*/
+}
 
 
 

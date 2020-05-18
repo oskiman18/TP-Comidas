@@ -186,14 +186,15 @@ bool restaurar_plato()
 
     FILE *p;
     p=fopen(BKP_PLATOS,"rb");
-    if (p==NULL) {free (vec);return false;}
+    if (p==NULL) {free (vec);cout<<"error 1";return false;}
     fread(vec,sizeof(plato),cant,p);
     fclose(p);
 
-    p=fopen(PLATOS,"wb");
-    if (p==NULL) {free (vec);return false;}
-    fwrite(vec,sizeof(plato),cant,p);
-    fclose(p);
+    FILE *p2;
+    p2=fopen(PLATOS,"wb");
+    //if (p2==NULL) {free (vec);cout<<"error 2";return false;}
+    fwrite(vec,sizeof(plato),cant,p2);
+    fclose(p2);
     free(vec);
     return true;
 }
